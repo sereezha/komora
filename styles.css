@@ -410,8 +410,9 @@ a.button {
   }
 
   .footer__content {
-    max-width: 495px;
+    max-width: 582px;
     width: 100%;
+    font-size: 23px;
   }
 
   .footer__bottom {
