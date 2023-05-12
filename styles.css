@@ -503,7 +503,7 @@ a.button {
 }
 
 .products-grid--desktop {
-  display: block;
+  display: none;
   grid-template-columns: repeat(3, 1fr);
 }
 
