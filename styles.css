@@ -1,3 +1,17 @@
+@font-face {
+  font-family: 'ClarelSerif';
+  src: url('./fonts/clarel-serif.woff2');
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SerialB';
+  src: url('./fonts/serial-b.woff2');
+  font-weight: 400;
+  font-display: swap;
+}
+
 *,
 *::before,
 *::after {
@@ -87,10 +101,21 @@ a:not([class]) {
   --main-color-light: hsla(0, 0%, 98%, 1);
   --text-color: var(--main-color);
   --text-color-light: var(--main-color-light);
+  --font-primary: 'SerialB';
+  --font-secondary: 'ClarelSerif';
+}
+
+.ff-primary {
+  font-family: var(--font-primary);
+}
+
+.ff-secondary {
+  font-family: var(--font-secondary);
 }
 
 body {
   color: var(--text-color);
+  font-family: var(--font-primary);
 }
 
 h1,
@@ -99,6 +124,7 @@ h3,
 h4,
 h5 {
   line-height: 1;
+  font-weight: 400;
 }
 
 .button {
@@ -131,7 +157,7 @@ h5 {
 
 .button--light {
   background-color: var(--main-color-light);
-  color: var(--text-color-light);
+  color: var(--text-color);
 }
 
 .button--medium {
@@ -380,7 +406,7 @@ a.button {
   }
 
   .footer__content {
-    max-width: 585px;
+    max-width: 495px;
     width: 100%;
   }
 
@@ -450,7 +476,7 @@ a.button {
 }
 
 .section-products {
-  padding: 20px 0 80px;
+  padding: 10px 0 80px;
 }
 
 .products-grid {
@@ -459,10 +485,8 @@ a.button {
   grid-template-columns: repeat(2, 1fr);
 }
 
-
 .products-card {
   align-content: start;
-
 }
 
 .products-grid--mobile {
@@ -501,4 +525,63 @@ a.button {
   .products-grid--desktop {
     display: grid;
   }
+}
+
+.header-mobile__inner {
+  display: grid;
+  align-items: center;
+  grid-template-columns: 1fr auto 1fr;
+}
+
+.header-cart {
+  justify-self: end;
+}
+
+@media screen and (min-width: 767px) {
+  .header-mobile {
+    display: none;
+  }
+}
+
+.main-header__inner {
+  display: grid;
+  align-items: center;
+  grid-template-columns: 1fr auto 1fr;
+}
+
+.main-header__order {
+  justify-self: end;
+}
+
+.product__inner {
+  display: grid;
+  gap: 8px;
+}
+
+.product-info {
+  margin-bottom: 32px;
+}
+
+.product-info__cell {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--main-color);
+  padding: 8px 0;
+}
+
+.product-title {
+  font-weight: 400;
+  font-size: 56px;
+  line-height: 67px;
+  color: #212121;
+  margin-bottom: 8px;
+}
+
+.product-number {
+  font-size: 13px;
+  line-height: 16px;
+  letter-spacing: 0.04em;
+  color: #212121;
+  opacity: 0.67;
+  margin-bottom: 24px;
 }
