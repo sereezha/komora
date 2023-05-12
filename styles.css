@@ -688,3 +688,7 @@ a.button {
 .swiper-button-next.swiper-button-disabled, .swiper-button-prev.swiper-button-disabled {
   opacity: 0;
 }
+
+.thumb {
+  cursor: pointer;
+}
