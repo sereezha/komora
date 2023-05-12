@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Продукт</title>
+    <link rel="stylesheet" href="./swiper.css" />
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
@@ -24,13 +25,94 @@
     <section class="product">
       <div class="container">
         <div class="product__inner">
-          <div class="product__content">
-            <div class="product-info">
-              <div class="product-title">Deep Plate</div>
-              <div class="product-number">SKU: 11-013</div>
-              <div class="product-variants">
-
+          <div class="product-slider" style="min-width: 0">
+            <div
+              style="
+                --swiper-navigation-color: #fff;
+                --swiper-pagination-color: #fff;
+              "
+              class="swiper mySwiper2"
+            >
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <img src="./assets/slider/slides/image-1.jpg" />
+                </div>
+                <div class="swiper-slide">
+                  <img src="./assets/slider/slides/image-2.jpg" />
+                </div>
+                <div class="swiper-slide">
+                  <img src="./assets/slider/slides/image-3.jpg" />
+                </div>
+                <div class="swiper-slide">
+                  <img src="./assets/slider/slides/image-4.jpg" />
+                </div>
+                <div class="swiper-slide">
+                  <img src="./assets/slider/slides/image-5.jpg" />
+                </div>
+                <div class="swiper-slide">
+                  <img src="./assets/slider/slides/image-6.jpg" />
+                </div>
+                <div class="swiper-slide">
+                  <img src="./assets/slider/slides/image-7.jpg" />
+                </div>
+                <div class="swiper-slide">
+                  <img src="./assets/slider/slides/image-8.jpg" />
+                </div>
               </div>
+              <div class="swiper-button-next"></div>
+              <div class="swiper-button-prev"></div>
+            </div>
+            <div
+              style="margin-top: 8px"
+              thumbsSlider=""
+              class="swiper mySwiper"
+            >
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <img src="./assets/slider/thumbs/image-1.jpg" />
+                </div>
+                <div class="swiper-slide">
+                  <img src="./assets/slider/thumbs/image-2.jpg" />
+                </div>
+                <div class="swiper-slide">
+                  <img src="./assets/slider/thumbs/image-3.jpg" />
+                </div>
+                <div class="swiper-slide">
+                  <img src="./assets/slider/thumbs/image-4.jpg" />
+                </div>
+                <div class="swiper-slide">
+                  <img src="./assets/slider/thumbs/image-5.jpg" />
+                </div>
+                <div class="swiper-slide">
+                  <img src="./assets/slider/thumbs/image-6.jpg" />
+                </div>
+                <div class="swiper-slide">
+                  <img src="./assets/slider/thumbs/image-7.jpg" />
+                </div>
+                <div class="swiper-slide">
+                  <img src="./assets/slider/thumbs/image-8.jpg" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="product__content">
+            <div class="product-title">Deep Plate</div>
+            <div class="product-number">SKU: 11-013</div>
+            <div class="product-variants">
+              <div class="js-product-variant product-variant is-active">
+                <img src="./assets/variants/image-2.png" alt="" />
+              </div>
+              <div class="js-product-variant product-variant">
+                <img src="./assets/variants/image-2.png" alt="" />
+              </div>
+              <div class="js-product-variant product-variant">
+                <img src="./assets/variants/image-3.png" alt="" />
+              </div>
+              <div class="js-product-variant product-variant">
+                <img src="./assets/variants/image-4.png" alt="" />
+              </div>
+            </div>
+            <div class="product-info__row">
               <div class="product-info__cell">
                 <div class="product-info__title">Category</div>
                 <div class="product-info__value">Deep Plate</div>
@@ -52,8 +134,10 @@
                 <div class="product-info__value">Semi-Porcelain</div>
               </div>
             </div>
+            <button class="product-info__btn button button--medium">
+              Add to Cart
+            </button>
           </div>
-          <button class="button button--medium">Add to Cart</button>
         </div>
       </div>
     </section>
@@ -151,5 +235,44 @@
         </div>
       </div>
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script>
+      var swiper = new Swiper('.mySwiper', {
+        spaceBetween: 8,
+        slidesPerView: 4.6,
+        freeMode: true,
+        watchSlidesProgress: true,
+        breakpoints: {
+          768: {
+            slidesPerView: 8,
+          },
+        },
+      });
+      var swiper2 = new Swiper('.mySwiper2', {
+        spaceBetween: 10,
+        effect: 'fade',
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+        thumbs: {
+          swiper: swiper,
+        },
+      });
+
+      const productVariants = document.querySelectorAll('.js-product-variant');
+      productVariants.forEach((variant) => {
+        variant.addEventListener('click', function () {
+          if (variant.classList.contains('is-active')) {
+            return;
+          }
+
+          productVariants.forEach((variant2) => {
+            variant2.classList.remove('is-active');
+          });
+          variant.classList.add('is-active');
+        });
+      });
+    </script>
   </body>
 </html>

@@ -554,11 +554,16 @@ a.button {
 }
 
 .product__inner {
-  display: grid;
+  display: flex;
   gap: 8px;
+  flex-direction: column;
 }
 
-.product-info {
+.product-info__row {
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 24px;
+  color: #000000;
   margin-bottom: 32px;
 }
 
@@ -567,6 +572,10 @@ a.button {
   justify-content: space-between;
   border-bottom: 1px solid var(--main-color);
   padding: 8px 0;
+}
+
+.product-info__btn {
+  width: 100%;
 }
 
 .product-title {
@@ -584,4 +593,93 @@ a.button {
   color: #212121;
   opacity: 0.67;
   margin-bottom: 24px;
+}
+
+.product-variants {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.product-variant {
+  width: 64px;
+  height: 64px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: border-color 0.3s;
+}
+
+.product-variant:not(.product-variant.is-active):hover {
+  border-color: rgba(33, 33, 33, 0.3);
+}
+
+.product-variant.is-active {
+  border-color: var(--main-color);
+}
+
+.product-slider {
+  min-width: 0;
+}
+
+@media screen and (min-width: 768px) {
+  .product-slider {
+    max-width: 560px;
+    width: 100%;
+  }
+
+  .product__inner {
+    flex-direction: row;
+    gap: 20px;
+  }
+
+  .product__content {
+    flex-grow: 1;
+  }
+
+  .product-info__row {
+    margin-bottom: 80px;
+  }
+
+  .product-title {
+    font-size: 96px;
+    line-height: 96px;
+    margin-bottom: 16px;
+  }
+
+  .product-info__btn {
+    width: auto;
+  }
+
+  .product-variants {
+    margin-bottom: 24px;
+  }
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.swiper-button-next:after,
+.swiper-button-prev:after {
+  background-image: url("data:image/svg+xml,%3Csvg role='presentation' focusable='false' style='display: block' viewBox='0 0 26.6 50' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cpolyline fill='none' stroke='%23000000' stroke-linejoin='butt' stroke-linecap='butt' stroke-width='2' points='1,1 25,25 1,49'%3E%3C/polyline%3E%3C/svg%3E");
+}
+
+.swiper-button-prev:after {
+  content: '';
+  width: 26.6px;
+  height: 50px;
+  transform: rotate(180deg);
+}
+
+.swiper-button-next:after {
+  content: '';
+  width: 26.6px;
+  height: 50px;
+}
+
+.swiper-button-next.swiper-button-disabled, .swiper-button-prev.swiper-button-disabled {
+  opacity: 0;
 }
