@@ -739,18 +739,21 @@ a.button {
 }
 
 .hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
   min-height: 680px;
-  background-image: url('./assets/hero.jpg');
+  background-image: url('./assets/hero-mobile.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 50% 50%;
   padding-bottom: 20px;
 }
 
-.hero {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
+@media screen and (min-width: 768px) {
+  .hero {
+    background-image: url('./assets/hero.jpg');
+  }
 }
 
 .main-logo {
